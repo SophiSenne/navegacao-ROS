@@ -28,7 +28,7 @@ void Grafo::lerCSV() {
             char valor = celula[0];
             linhaGrid.push_back(valor);
 
-            if (valor == 'f') {
+            if (valor != 'b') {
                 coordToId[{linhaAtual, colunaAtual}] = idContador;
                 idContador++;
             }
@@ -58,7 +58,7 @@ void Grafo::construirArestas() {
 
     for (int r = 0; r < numLinhas; r++) {
         for (int c = 0; c < numColunas; c++) {
-            if (mapa[r][c] != 'f') continue;
+            if (mapa[r][c] == 'b') continue;
 
             int idAtual = coordToId[{r, c}];
 
@@ -69,7 +69,7 @@ void Grafo::construirArestas() {
                 if (nr < 0 || nr >= numLinhas || nc < 0 || nc >= numColunas)
                     continue;
 
-                if (mapa[nr][nc] == 'f') {
+                if (mapa[nr][nc] != 'b') {
                     int idViz = coordToId[{nr, nc}];
                     listaAdj[idAtual].push_back(idViz);
                 }

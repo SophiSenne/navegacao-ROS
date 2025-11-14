@@ -6,10 +6,7 @@ using namespace std;
 
 class Grafo {
 private:
-    vector<vector<char>> mapa;                   
-    map<pair<int,int>, int> coordToId;           
-    vector<vector<int>> listaAdj;                    
-
+    vector<vector<char>> mapa;   
     string nomeArquivo;
 
     int idContador = 0;
@@ -21,6 +18,8 @@ private:
 
 public:
     Grafo(string nomeArquivo);
+    vector<vector<int>> listaAdj; 
+    map<pair<int,int>, int> coordToId; 
     void imprimirGrafo();
 };
 
